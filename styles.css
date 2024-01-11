@@ -1,0 +1,15 @@
+#grid {
+    display: grid;
+    grid-gap: 8px;
+    grid-template-columns: 1fr 2fr;
+    grid-template-rows: repeat(6, 100px);
+   
+  }
+
+#statCell {
+    grid-row: span 4;
+}
+
+#diceSettings{
+    grid-row: span 3;
+}
