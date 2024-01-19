@@ -25,9 +25,7 @@ function temp(){
 
 function roll(){
     var diceNum = document.getElementById("diceNum").value
-    console.log(diceNum)
     var rollNum = document.getElementById("rollNum").value
-    console.log(rollNum)
     
     totalRoll += Number(rollNum);
     
@@ -112,29 +110,63 @@ if (totalRoll%2 == 1){
             a += fullArray[i];
             index = i;}
     }
+    
     return index+1;
 }
 else {
     midLocation = (totalRoll/2)-1
-    let checker = false;
+    duoStorage = 0;
 
+    if (midLocation == 0){
+        midLocation+1;
+    }
     for (let i = 0; i<18;i++){
         if (a <=midLocation){
             a += fullArray[i];
             index = i;
-            console.log("INDEX: "+ index )
-
-            if (a >= midLocation){
-                return Number(((index+1)+(i+1))/2)
-
+        
+            if(a == midLocation){
+                duoStorage = index+1;
             }
         }
-        
-
-        
     }
+    if (!((index+1) == duoStorage)){
+        console.log(midLocation + " : " + Number(index+1) + " : "+ duoStorage)
+        console.log("METHOD RAN: "+ Number((index+1)+(duoStorage)))
+        return Number(((index+1)+(duoStorage))/2);
+    }
+    return index+1;
 
-    middle = (fullArray[totalRoll/2] + fullArray[(totalRoll/2)-1])/2
+    // if(a > midLocation){
+    //     return index+1;
+    // }
+    
+    // let checker = false;
+
+    // for (let i = 0; i<18;i++){
+    //     if (a <=midLocation){
+    //         a += fullArray[i];
+    //         if (checker == true && a > midLocation){
+    //             console.log("HEREHERE")
+    //             return Number(((index+1)+(index+2))/2)
+    //         }
+    //         else{
+    //         index = i;
+    //     }
+
+    //         if (a > midLocation){
+    //             console.log("BYEBYE")
+    //             return index+1;
+
+    //         }
+    //         else if(a == midLocation){
+    //             checker = true;
+    //         }
+            
+    //     }
+    //     }
+
+   
 }
 
 }
